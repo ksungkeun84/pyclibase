@@ -10,7 +10,7 @@ from rich import traceback
 from rich import print
 from pyfiglet import Figlet
 
-class PythonCLIBase(object):
+class pyclibase(object):
     def __init__(self, args, name):
         self.logger = None
         self.args = args
