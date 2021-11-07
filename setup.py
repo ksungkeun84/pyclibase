@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="example-pkg-YOUR-USERNAME-HERE",
-    version="0.1.0",
+    name="pyclibase",
+    version="0.1.1",
     author="Sungkeun Kim",
     author_email="danguria@gmail.com",
     description = "A base class of python cli",
