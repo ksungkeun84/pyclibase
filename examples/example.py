@@ -5,14 +5,13 @@ import logging
 import warnings
 from typing import List
 
-from rich.logging import RichHandler
-from rich import traceback
-from rich import print
-import pyfiglet
+#from rich.logging import RichHandler
+#from rich import traceback
+#from rich import print
 
 from pyclibase import pyclibase
 prg_name = 'Example Program'
-pyclibase.pyclibase.init(prg_name, 'example')
+pyclibase.print_title(prg_name, 'example')
 
 
 class ExampleCLI(pyclibase.pyclibase):
