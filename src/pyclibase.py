@@ -10,50 +10,21 @@ from rich import traceback
 from rich import print
 from pyfiglet import Figlet
 
+log = None
+def init(title, logger_name):
+    global log
+    title = pyfiglet.figlet_format('DCCE CLI', font='slant')
+    print(f'[blue]{title}[/blue]')
+    FORMAT = "%(message)s"
+    logging.basicConfig(format=FORMAT, datefmt="[%X]", level="NOTSET", handlers=[RichHandler(rich_tracebacks=True, markup=True)])
+    traceback.install()
+    log = logging.getLogger("rich")
+
 class pyclibase(object):
     def __init__(self, args, name):
-        self.logger = None
         self.args = args
         self.name = name
         self.format= "%(message)s"
-        self.initLogger()
-        self.printTitle()
-
-    def initLogger(self):
-        # Create logger
-        logging.basicConfig(
-                format=self.format,
-                datefmt="[%X]",
-                level="NOTSET",
-                handlers=[RichHandler(rich_tracebacks=True, markup=True)]
-        )
-        self.logger = logging.getLogger(self.name)
-        traceback.install()
-
-        # Filter out this warning about Rich TQDM progress bars
-        warnings.filterwarnings("ignore", message="rich is experimental/alpha")
-        #self.logger.setLevel(logging.DEBUG)
-
-        # Create console handler and set level to debug
-        #ch = logging.StreamHandler()
-        #ch.setLevel(logging.DEBUG)
-
-        # Create formatter
-        #formatter = logging.Formatter('[%(asctime)s][%(name)s][%(levelname)s]: %(message)s')
-
-        # Add formatter to ch
-        #ch.setFormatter(formatter)
-
-        # Add ch to logger
-        #self.logger.addHandler(ch)
-
-    def printTitle(self):
-        pass
-        #title = pyfiglet.figlet_format(self.name, font='slant')
-        #print(f'[blue]{title}[/blue]')
-        #custom_fig = Figlet(font='graffiti')
-        #print(custom_fig.renderText(self.name))
-
 
     def execute_cmd(self, cmd:str):
         """Run shell command
