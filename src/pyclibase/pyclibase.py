@@ -14,7 +14,7 @@ import pyfiglet
 log = None
 def print_title(title, logger_name):
     global log
-    title = pyfiglet.figlet_format('DCCE CLI', font='slant')
+    title = pyfiglet.figlet_format(title, font='slant')
     print(f'[blue]{title}[/blue]')
     FORMAT = "%(message)s"
     logging.basicConfig(format=FORMAT, datefmt="[%X]", level="NOTSET", handlers=[RichHandler(rich_tracebacks=True, markup=True)])
