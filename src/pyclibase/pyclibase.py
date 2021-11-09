@@ -13,6 +13,7 @@ import pyfiglet
 
 log = None
 def print_title(title, logger_name):
+    os.system('cls' if os.name == 'nt' else 'clear')
     global log
     title = pyfiglet.figlet_format(title, font='slant')
     print(f'[blue]{title}[/blue]')
