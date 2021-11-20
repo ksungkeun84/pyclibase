@@ -19,7 +19,7 @@ def init_pycli(title, logger_name, log_file_name):
     print(f'[blue]{title}[/blue]')
     FORMAT = "%(message)s"
     #logging.basicConfig(format=FORMAT, datefmt="[%X]", level="NOTSET", handlers=[RichHandler(rich_tracebacks=True, markup=True)], filename=logger_name)
-    logging.basicConfig(format=FORMAT, datefmt="[%X]", level="NOTSET", filename=logger_name)
+    logging.basicConfig(format=FORMAT, datefmt="[%X]", level="NOTSET")
     traceback.install()
 
     log = logging.getLogger(logger_name)

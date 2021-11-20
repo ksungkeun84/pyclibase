@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pyclibase",
-    version="0.2.5",
+    version="0.2.7",
     author="Sungkeun Kim",
     author_email="danguria@gmail.com",
     description = "A base class of python cli",
@@ -23,4 +23,10 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
+    install_requires = [
+        "setuptools>=42",
+        "wheel",
+        "rich",
+        "pyfiglet"
+    ],
 )
